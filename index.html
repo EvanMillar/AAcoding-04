@@ -27,6 +27,9 @@ h1{
 <body translate="no">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<audio id="sad" controls>
+<source src="https://math.seattleacademy.org/garyanderson/snd/sad.mp3" type "audio mpeg">
+</audio>
 <div>Timer: <span id="theTimer">0</span> Score: <span id="score">0</span></div>
 <h1>EJM the Best's bestest math<h1>
 <ol>
@@ -38,6 +41,7 @@ h1{
 <ol>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 <script id="rendered-js">
+const sad = document.getElementById("sad")
 setInterval(onTimer,1000);
 function onTimer(){
   let theTimer = Number($("#theTimer").text());
@@ -59,6 +63,10 @@ function onChange(evt){
   } else
     {
       $(this).removeClass("correct").addClass("incorrect");
+      if (Math.random() > 0.9){
+        sad.play();
+      }
+      
     }
 }
     </script>
